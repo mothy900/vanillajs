@@ -13,7 +13,7 @@ function getWeather(lat, lon) {
       console.log(json);
       const temperature = json.main.temp;
       const place = json.name;
-      weather.innerHTML = `${temperature} @ ${place}`;
+      weather.innerHTML = `${temperature}°C <br> ${place}`;
     });
 } //이해 안되면 유튜브 클론 듣자
 

@@ -1,8 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700&display=swap");
 body {
+  width: 100%;
+  height: 800px;
   background-color: #096e88;
   color: white;
 }
-
+h1 {
+  margin: 10px 0px;
+}
 .form,
 .greetings {
   display: none;
@@ -10,6 +15,8 @@ body {
 
 .showing {
   display: block;
+  font-size: 30pt;
+  margin: 10px 20px;
 }
 
 @keyframes fadeIn {
@@ -29,4 +36,45 @@ body {
   height: 100%;
   z-index: -1;
   animation: fadeIn 0.5s linear;
+}
+
+.main-display {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.main-clock {
+  font-size: 70px;
+}
+
+input::placeholder {
+  color: white;
+}
+
+.todoForm {
+  margin-top: 50px;
+}
+ul {
+  font-size: 25px;
+}
+
+Button {
+  padding: 3px 5px;
+  margin-left: 20px;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 15px;
+  font-weight: 700;
+  color: REd;
+}
+
+.main-weather {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-weight: 700;
 }
