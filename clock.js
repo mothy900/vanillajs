@@ -11,9 +11,7 @@ function getTime() {
   }:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 function init() {
-  console.log("init");
   getTime();
   setInterval(getTime, 1000);
 }
-
 init();
