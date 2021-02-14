@@ -2,12 +2,27 @@ const timerContainer = document.querySelector(".js-timer"),
   timerMin = timerContainer.querySelector(".timer-min"),
   timerSec = timerContainer.querySelector(".timer-sec"),
   timerBtn = timerContainer.querySelector(".js-timer-start"),
+  timerDot = timerContainer.querySelector(".timer-dot"),
   timerMinPlace = document.getElementsByName("timer-min"),
-  timerSecPlace = document.getElementsByName("timer-sec");
+  timerSecPlace = document.getElementsByName("timer-sec"),
+  timerIcon = document.querySelector(".js-timer-icon");
 
 let timer_min;
 let timer_sec;
 let timerVar;
+function timerHide() {
+  timerContainer.style.visibility = "hidden";
+  timerIcon.removeEventListener("click", timerHide);
+  timerIcon.addEventListener("click", timerShow);
+
+}
+
+function timerShow() {
+
+  timerContainer.style.visibility = "visible";
+  timerIcon.removeEventListener("click", timerShow);
+  timerIcon.addEventListener("click", timerHide);
+}
 
 function stopTimer() {
   clearInterval(timerVar);
@@ -63,7 +78,7 @@ function getTimer() {
 
 }
 function init() {
-
   timerBtn.addEventListener("click", startTimer);
+  timerIcon.addEventListener("click", timerShow);
 }
 init();

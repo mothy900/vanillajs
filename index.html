@@ -5,6 +5,7 @@
   <title>Parcel Sandbox</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="src/styles.css" />
+  <script src="https://kit.fontawesome.com/fa6de8624b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,9 +15,9 @@
       <div class="js-clock main-clock">
         <h1>00:00</h1>
       </div>
-      <div class="js-timer timer-clock">
+      <div class="js-timer timer-clock" style="visibility: hidden;">
 
-        <input name="timer-min" class="timer-min" type="int" placeholder="00" style="
+        <input name="timer-min" class="js-timer timer-min" type="int" placeholder="00" style="
               font-size: 40pt;
               color: white;
               font-weight: bold;
@@ -25,9 +26,10 @@
               text-align: center;            
               border-bottom: 3px solid white;
               width: 100px;
+              
             " />
-        <span style="font-size: 40pt;"> :</span>
-        <input name="timer-sec" class="timer-sec" type="int" placeholder="00" style="
+        <span class="js-timer timer-dot" style="font-size: 40pt;"> :</span>
+        <input name="timer-sec" class="js-timer timer-sec" type="int" placeholder="00" style="
               font-size: 40pt;
               color: white;
               font-weight: bold;
@@ -36,8 +38,9 @@
               text-align: center;
               border-bottom: 3px solid white;
               width: 100px;
+              
             " />
-        <button class="js-timer-start">
+        <button class="js-timer js-timer-start">
           시작!
         </button>
       </div>
@@ -74,6 +77,34 @@
       <ul class="js-toDoList todoList"></ul>
       <div class="main-weather">
         <span class="js-weather"></span>
+      </div>
+    </div>
+    <div class="nav">
+      <div class="navigation">
+
+        <div class="nav-scholar">
+          <a href="https://scholar.google.com/" class="scholar">
+            <i class="fas fa-book"></i>
+          </a>
+        </div>
+        <div class="nav-dic">
+          <a href="https://en.dict.naver.com/#/main">
+            <i class="fas fa-spell-check"></i>
+          </a>
+        </div>
+        <div class="nav-papago">
+          <a href="https://papago.naver.com/">
+            <i class="fas fa-dove"></i>
+          </a>
+        </div>
+        <div class="nav-khu">
+          <a href="https://mail.khu.ac.kr/">
+            <i class="fas fa-university"></i>
+          </a>
+        </div>
+        <div class="js-timer-icon">
+          <i class="fas fa-clock"></i>
+        </div>
       </div>
     </div>
   </div>

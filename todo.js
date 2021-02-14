@@ -12,23 +12,31 @@ function paintSubToDos() {
 }
 function addEvent() {
   const addBtn = document.getElementsByClassName(".addBtnClass");
-  console.log("add")
-  addBtn.addEventListener("submit", paintSubToDos)
-}
-function addToDo() {
-  console.log("add");
-  const ls = document.createElement("ls");
-  const inputBox = document.createElement("input");
 
+}
+
+/** 소제목 만드는중 
+ * li의 id를 받아와서 grid-row속성을 활용해 중간에 끼워 넣음
+ * but 기존의 local storage에 있는 속성의 id를 수정해야 함
+ */
+function addToDo(event) {
+  console.log("add");
+  const div = document.createElement("div");
+  const inputBox = document.createElement("input");
+  const btn = event.target;
+  const li = btn.parentNode;
+  console.log(li);
   inputBox.placeholder = "input here";
   inputBox.className = "addBox";
-  const addBox = document.querySelector("addBox");
-  console.log(addBox);
-  ls.appendChild(inputBox);
-  todoList.appendChild(ls);
+  div.appendChild(inputBox);
+  div.className = "list-addBox";
+  div.style.gridRow = `${li.id}`;
 
+  // inputbox 세로정렬하기 위해 
+  todoList.appendChild(div);
   addEvent();
 
+  div.removeAttribute("gridRow");
 }
 function filterFn(toDo) {
   return toDo.id === 1;
@@ -65,6 +73,7 @@ function paintToDo(text) {
   li.appendChild(addBtn);
   li.appendChild(delBtn);
   li.id = newId;
+  li.className = `list list-${newId}`;
   todoList.appendChild(li);
   const toDoObj = {
     text: text,
