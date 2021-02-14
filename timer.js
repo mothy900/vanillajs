@@ -12,8 +12,8 @@ let timer_sec;
 let timerVar;
 function timerHide() {
   timerContainer.style.visibility = "hidden";
+  timerIcon.removeEventListener("click", timerHide);
   timerIcon.addEventListener("click", timerShow);
-  timerIcon.addEventListener("click", timerHide);
 
 }
 
