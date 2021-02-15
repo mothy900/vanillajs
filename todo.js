@@ -70,7 +70,7 @@ function paintToDo(text) {
   delBtn.addEventListener("click", deleteToDo);
   span.innerText = text;
   li.appendChild(span);
-  li.appendChild(addBtn);
+  //li.appendChild(addBtn);
   li.appendChild(delBtn);
   li.id = newId;
   li.className = `list list-${newId}`;
