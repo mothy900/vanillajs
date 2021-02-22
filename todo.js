@@ -72,6 +72,7 @@ function paintToDo(text) {
   li.appendChild(span);
   //li.appendChild(addBtn);
   li.appendChild(delBtn);
+  li.draggable = true;
   li.id = newId;
   li.className = `list list-${newId}`;
   todoList.appendChild(li);
@@ -99,9 +100,12 @@ function loadTodos() {
     });
   }
 }
+
+
 function init() {
   loadTodos();
   toDoForm.addEventListener("submit", handleSubmit);
+
 }
 
 init();

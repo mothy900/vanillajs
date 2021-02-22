@@ -10,73 +10,92 @@
 
 <body>
   <div class="total-display">
-    <div class="main-display">
+    <div class="up-display">
 
-      <div class="js-clock main-clock">
-        <h1>00:00</h1>
+      <div class="main-display">
+
+        <div class="js-clock main-clock">
+          <h1>00:00</h1>
+        </div>
+        <div class="js-timer timer-clock" style="visibility: hidden;">
+
+          <input name="timer-min" class="js-timer timer-min" type="int" placeholder="00" style="
+                font-size: 40pt;
+                color: white;
+                font-weight: bold;
+                background-color: transparent;
+                border: 0px;
+                text-align: center;            
+                border-bottom: 3px solid white;
+                width: 100px;
+                
+              " />
+          <span class="js-timer timer-dot" style="font-size: 40pt;"> :</span>
+          <input name="timer-sec" class="js-timer timer-sec" type="int" placeholder="00" style="
+                font-size: 40pt;
+                color: white;
+                font-weight: bold;
+                background-color: transparent;
+                border: 0px;
+                text-align: center;
+                border-bottom: 3px solid white;
+                width: 100px;
+                
+              " />
+          <button class="js-timer js-timer-start">
+            시작!
+          </button>
+        </div>
+
       </div>
-      <div class="js-timer timer-clock" style="visibility: hidden;">
+      <div class="sub-display">
+        <div class="user-display">
 
-        <input name="timer-min" class="js-timer timer-min" type="int" placeholder="00" style="
-              font-size: 40pt;
-              color: white;
-              font-weight: bold;
-              background-color: transparent;
-              border: 0px;
-              text-align: center;            
-              border-bottom: 3px solid white;
-              width: 100px;
-              
-            " />
-        <span class="js-timer timer-dot" style="font-size: 40pt;"> :</span>
-        <input name="timer-sec" class="js-timer timer-sec" type="int" placeholder="00" style="
-              font-size: 40pt;
-              color: white;
-              font-weight: bold;
-              background-color: transparent;
-              border: 0px;
-              text-align: center;
-              border-bottom: 3px solid white;
-              width: 100px;
-              
-            " />
-        <button class="js-timer js-timer-start">
-          시작!
-        </button>
+          <form class="js-form form main-name">
+            <input type="text" size="20" placeholder="Hello, what's your name??" style="
+                  font-size: 30pt;
+                  color: #597186;
+                  font-weight: bold;
+                  background-color: transparent;
+                  border: 0px;
+                  text-align: center;
+                  border-bottom: 3px solid #597186;
+                  
+                " />
+          </form>
+          <h4 class="js-greetings greetings"></h4>
+
+          <form class="js-toDoForm todoForm">
+            <input type="text" size="15" placeholder="What to do today?" style="
+                  font-size: 25pt;
+                  color: #597186;
+                  font-weight: bold;
+                  background-color: transparent;
+                  border: 0px;
+                  text-align: center;
+                  border-bottom: 3px solid #597186;
+                " />
+          </form>
+        </div>
+
+        <div class="main-weather">
+          <span class="js-weather"></span>
+        </div>
       </div>
-
     </div>
-    <div class="sub-display">
-      <div class="user-display">
+    <div class="down-display-js down-display">
+      <div class="befor-todo-js before">
+        <div class="before-text">
 
-        <form class="js-form form main-name">
-          <input type="text" size="20" placeholder="Hello, what's your name??" style="
-                font-size: 30pt;
-                color: white;
-                font-weight: bold;
-                background-color: transparent;
-                border: 0px;
-                text-align: center;
-                border-bottom: 3px solid white;
-              " />
-        </form>
-        <h4 class="js-greetings greetings"></h4>
-
-        <form class="js-toDoForm todoForm">
-          <input type="text" size="15" placeholder="What to do today?" style="
-                font-size: 25pt;
-                color: white;
-                font-weight: bold;
-                background-color: transparent;
-                border: 0px;
-                text-align: center;
-                border-bottom: 3px solid white;
-              " />
-        </form>
+          <h3> 오늘 할일!</h3>
+        </div>
+        <ul class="js-toDoList todoList"></ul>
       </div>
-      <ul class="js-toDoList todoList"></ul>
-      <div class="main-weather">
-        <span class="js-weather"></span>
+      <div class="after-todo-js after">
+        <div class="after-text">
+          <h3> 다했당! </h3>
+        </div>
+        <ul class="todo-after"></ul>
       </div>
     </div>
     <div class="nav">
@@ -114,6 +133,7 @@
   <script src="todo.js"></script>
   <script src="bg.js"></script>
   <script src="weather.js"></script>
+  <script src="drag.js"></script>
 </body>
 
 </html>

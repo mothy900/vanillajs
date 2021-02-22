@@ -7,12 +7,53 @@ body {
 }
 h1 {
   margin: 10px 0px;
+  color: #597186;
 }
 .form,
 .greetings {
   display: none;
 }
+.total-display{
+  height: 100%;
+  width : 100%;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr 200px;
+}
+.up-display{
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  
+}
+.down-display{
+  grid-row : 2;
+  grid-column: 1 ;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-column: 1fr 1fr;
+}
 
+.before{
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows:50px 1fr;
+
+}
+.after{
+  grid-column: 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+
+}
 .showing {
   display: block;
   font-size: 30pt;
@@ -39,8 +80,7 @@ h1 {
 }
 
 .main-display {
-  margin-top: 100px;
-  width: 100%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -48,19 +88,53 @@ h1 {
   align-items: center;
 }
 
+::placeholder {
+  color: #597186;
+  opacity: 1; /* Firefox */
+}
+
+
+.main-name{
+  color: #597186;
+}
+
+.todoForm{
+  color: #597186;
+}
+
 .main-clock {
   font-size: 70px;
 }
+.before-text, .after-text{
+  display: flex;
+  justify-content: center;
+  grid-row: 1;
+}
+
+.before{
+  margin-left: 20px;
+  width: 80%;
+  height: 80%;
+  margin-top : 50px;
+  border : 2px solid white;
+}
+.after{
+  margin-left: 20px;
+  width: 80%;
+  height: 80%;
+  margin-top: 50px;
+  border : 2px solid white;
+}
 
 input::placeholder {
-  color: white;
+  color: #597186;
 }
 
 .todoForm {
   margin-top: 50px;
 }
 ul {
-  font-size: 25px;
+  font-size: 15px;
   
 }
 
@@ -71,16 +145,15 @@ Button {
   background-color: rgba(0, 0, 0, 0);
   font-size: 15px;
   font-weight: 700;
-  color: REd;
+  color: white;
 }
 .js-timer-start{
   padding: 3px 5px;
   margin-left: 20px;
   border: 2px solid white;
   background-color: rgba(0, 0, 0, 0);
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
-  color: REd;
 }
 
 
@@ -89,23 +162,20 @@ Button {
   top: 20px;
   right: 20px;
   font-weight: 700;
+  color: #597186;
 }
 
 .js-timer-start{
   color: white;
 }
 
-.total-display{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  
-}
+
 .sub-display{
-  width: 100%;
+  margin-left: 50px;
+  width: 40%;
   height: 100%;
   display: grid;
-  grid-template-rows: 100px 150px 1fr;
+  grid-template-rows: 50px 150px 1fr;
 }
 .user-display{
   grid-row: 2;
@@ -113,10 +183,19 @@ Button {
 
 
 .todoList{
-  grid-row: 3;
+  grid-row: 2;
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(40px, 2fr));
+  grid-template-rows: repeat(auto-fill, minmax(30px, 2fr));
+  
 }
+.todo-after {
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(30px, 2fr));
+  
+}
+
+
 .addBox{
   font-size: 20pt;
   color: white;
@@ -133,9 +212,13 @@ Button {
   display: flex;
   flex-direction: row;
 }
+
 .nav{
   width: 200px;
   height: 100%;
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
   display: flex;
   align-items: center;
 }
@@ -148,7 +231,10 @@ Button {
   align-items: center;
 }
 
+
+
 i{
   font-size: 30px;
   color: white;
 }
+
