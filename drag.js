@@ -1,11 +1,15 @@
-const displayDown = document.querySelector(".down-display-js");
+const displayDown = document.querySelector(".down-display-js"),
+    toDoAfter = document.querySelector(".todo-after");
 
 let dragged;
 const TODOAFTER_LS = "afterToDos";
 let afterToDos = [];
+let idVar;
+
 
 function saveAfterToDos() {
     localStorage.setItem(TODOAFTER_LS, JSON.stringify(afterToDos));
+
 }
 function todoDrop(event) {
     event.preventDefault();
@@ -16,27 +20,41 @@ function todoDrop(event) {
         event.target.appendChild(dragged);
         event.target.style.opacity = "";
 
-        // 드래그앤 드랍으로 after에 추가해야함
+        // 박스안에 있는 리스트를 배열에 담기
+
+        console.log("move text : ", toDos[idVar - 1].text);
+        const newId = afterToDos.length + 1;
+        const afterToDoObj = {
+            text: toDos[idVar - 1].text,
+            id: newId,
+        };
+        afterToDos.push(afterToDoObj);
 
 
+        console.log("log : ", afterToDos[afterToDos.length - 1]);
+        saveAfterToDos();
+        //const afterText = afterToDos[afterToDos.length - 1].text;
 
-        //드래그앤 드랍으로 기존의 toDo 배열에서 지움
+
+        // afterToDos 배열에 추가한 요소는 toDos에서 제거하기
+        console.log("obj : ", toDos[idVar - 1].text);
+
         const cleanToDos = toDos.filter(function (toDo) {
-            const target_id = displayDown.querySelector(`.list`);
-            const event_id = event.path[0];
-            afterToDos = toDos[event_id.id];
-            //console.log("event1 : ", event_id);
-            //console.log("event2 : ", target_id.id);
-            //console.log("todo.id : ", toDos);
 
-            return toDo.id !== parseInt();
+
+            return toDo.id !== parseInt(idVar);
         });
+        console.log("cleanToDos : ", cleanToDos)
         toDos = cleanToDos;
-        localStorage.setItem("toDos", JSON.stringify(toDos));
-
-        saveToDos();
-
+        localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+        // 
     }
+    //after에 추가하기 
+
+
+
+    //드래그앤 드랍으로 기존의 toDo 배열에서 지움 -> 미완성
+
 }
 
 function todoDragLeave(event) {
@@ -57,47 +75,71 @@ function todoDragOver(event) {
 
 }
 
-function addArray(text) {
-    const newId = afterToDos.length + 1;//lenth가 왜 문제?
-
-    const afterToDosObj = {
-        text: text,
-        id: newId,
-    };
-    afterToDos.push(afterToDosObj);
-    console.log("target : ", event.target);
-
-}
 function todoDragEnd(event) {
     event.target.style.opacity = "";
-    const target_todo_id = displayDown.querySelector(".list");
-    const text = toDos[target_todo_id.id].text;
-    console.log(text);
 
-    addArray(text);
-    // afterToDos 배열에 추가하기
 
 }
 function todoDragstart(event) {
     dragged = event.target;
     // make it half transparent
     event.target.style.opacity = .5;
+    idVar = dragged.id;
+    console.log("idVar : ", idVar);
+}
 
+function paintAfterToDo(text) {
+    const li = document.createElement("li");
+    const delBtn = document.createElement("Button");
+    const span = document.createElement("span");
+    const newId = afterToDos.length + 1;
 
+    delBtn.innerText = "×";
+    delBtn.addEventListener("click", deleteToDo);//delete 추가
+    span.innerText = text;
+    li.appendChild(span);
+    //li.appendChild(addBtn);
+    li.appendChild(delBtn);
+    li.draggable = true;
+    li.id = newId;
+    li.className = `list list-${newId}`;
+    toDoAfter.appendChild(li);
+    const afterToDoObj = {
+        text: text,
+        id: newId,
+    };
+    afterToDos.push(afterToDoObj);
+    console.log("afterToDos.length : ", afterToDos.length);
+    console.log("afterToDos.length : ", afterToDos);
+    saveAfterToDos();
 
 }
+function loadAfterTodos() {
+
+
+    const loadAfterToDos = localStorage.getItem(TODOAFTER_LS);
+    console.log(loadAfterToDos, "load");
+    if (loadAfterToDos !== null) {
+        const parsedAfterToDos = JSON.parse(loadAfterToDos);
+        parsedAfterToDos.forEach(function (afterToDo) {
+            paintAfterToDo(afterToDo.text);
+        });
+    }
+}
+
 
 function init() {
     displayDown.addEventListener("drag", function (event) {
 
     }, false);
+
     displayDown.addEventListener("dragstart", todoDragstart, false);
     displayDown.addEventListener("dragend", todoDragEnd, false);
     displayDown.addEventListener("dragover", todoDragOver, false);
     displayDown.addEventListener("dragenter", todoDragEnter, false);
     displayDown.addEventListener("dragleave", todoDragLeave, false);
     displayDown.addEventListener("drop", todoDrop, false);
-    console.log(toDos);
+    loadAfterTodos();
 
 }
 
