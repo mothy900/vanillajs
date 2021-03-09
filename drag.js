@@ -6,6 +6,17 @@ const TODOAFTER_LS = "afterToDos";
 let afterToDos = [];
 let idVar;
 
+function deleteAfrerToDo(event) {
+    const btn = event.target;
+    const li = btn.parentNode;
+    toDoAfter.removeChild(li);
+    const cleanAfterToDos = afterToDos.filter(function (afterToDo) {
+        return afterToDo.id !== parseInt(li.id);
+    });
+    console.log("cleanAfterToDos : ", cleanAfterToDos)
+    afterToDos = cleanAfterToDos;
+    localStorage.setItem(TODOAFTER_LS, JSON.stringify(afterToDos));
+}
 
 function saveAfterToDos() {
     localStorage.setItem(TODOAFTER_LS, JSON.stringify(afterToDos));
@@ -22,7 +33,6 @@ function todoDrop(event) {
 
         // 박스안에 있는 리스트를 배열에 담기
 
-        console.log("move text : ", toDos[idVar - 1].text);
         const newId = afterToDos.length + 1;
         const afterToDoObj = {
             text: toDos[idVar - 1].text,
@@ -30,21 +40,16 @@ function todoDrop(event) {
         };
         afterToDos.push(afterToDoObj);
 
-
-        console.log("log : ", afterToDos[afterToDos.length - 1]);
         saveAfterToDos();
         //const afterText = afterToDos[afterToDos.length - 1].text;
 
 
         // afterToDos 배열에 추가한 요소는 toDos에서 제거하기
-        console.log("obj : ", toDos[idVar - 1].text);
+
 
         const cleanToDos = toDos.filter(function (toDo) {
-
-
             return toDo.id !== parseInt(idVar);
         });
-        console.log("cleanToDos : ", cleanToDos)
         toDos = cleanToDos;
         localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
         // 
@@ -95,7 +100,7 @@ function paintAfterToDo(text) {
     const newId = afterToDos.length + 1;
 
     delBtn.innerText = "×";
-    delBtn.addEventListener("click", deleteToDo);//delete 추가
+    delBtn.addEventListener("click", deleteAfrerToDo);//delete 추가
     span.innerText = text;
     li.appendChild(span);
     //li.appendChild(addBtn);
@@ -109,8 +114,6 @@ function paintAfterToDo(text) {
         id: newId,
     };
     afterToDos.push(afterToDoObj);
-    console.log("afterToDos.length : ", afterToDos.length);
-    console.log("afterToDos.length : ", afterToDos);
     saveAfterToDos();
 
 }
@@ -118,7 +121,6 @@ function loadAfterTodos() {
 
 
     const loadAfterToDos = localStorage.getItem(TODOAFTER_LS);
-    console.log(loadAfterToDos, "load");
     if (loadAfterToDos !== null) {
         const parsedAfterToDos = JSON.parse(loadAfterToDos);
         parsedAfterToDos.forEach(function (afterToDo) {

@@ -10,7 +10,6 @@ function getWeather(lat, lon) {
       return response.json();
     })
     .then(function (json) {
-      console.log(json);
       const temperature = json.main.temp;
       const place = json.name;
       weather.innerHTML = `${temperature}°C <br> ${place}`;
@@ -40,6 +39,7 @@ function askForCoords() {
   //location 을 일겅옴
 }
 function loadCoords() {
+  console.log("city refresh");
   const loadedCoords = localStorage.getItem(COORDS);
   if (loadedCoords === null) {
     askForCoords();
@@ -53,6 +53,7 @@ function loadCoords() {
 
 function init() {
   loadCoords();
+  setInterval(askForCoords, 300000);  //1000 = 1s 5분에 한번씩 reset
 }
 
 init();
