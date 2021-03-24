@@ -6,10 +6,16 @@ body {
   color: white;
 }
 
-h1, input::placeholder ,.addBtnClass, .js-timer-start, .main-name, .todoForm,.main-weather, ::placeholder, button{
+h1, input::placeholder ,.addBtnClass,.todoForm , .js-timer-start, .main-name, .todoForm,.main-weather, ::placeholder, button, i{
   color : white;
 }
+.main-name{
+  border-bottom: 3px solid white;
+}
+.todoForm{
 
+  border-bottom: 3px solid white;
+}
 h1 {
   margin: 10px 0px;
   animation: fadeIn 0.5s linear;
