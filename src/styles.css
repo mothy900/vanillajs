@@ -2,16 +2,26 @@
 body {
   width: 100%;
   height: 700px;
-  background-color: #096e88;
+  background-color: white;
   color: white;
 }
+
+h1, input::placeholder ,.addBtnClass, .js-timer-start, .main-name, .todoForm,.main-weather, ::placeholder, button{
+  color : white;
+}
+
 h1 {
   margin: 10px 0px;
-  color: #597186;
+  animation: fadeIn 0.5s linear;
 }
 .form,
 .greetings {
   display: none;
+  animation: fadeIn 0.5s linear;
+}
+
+.todoForm{
+  animation: fadeIn 0.5s linear;
 }
 .total-display{
   height: 100%;
@@ -59,7 +69,7 @@ h1 {
   font-size: 30pt;
   margin: 10px 0px;
 }
-
+/*
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -68,7 +78,7 @@ h1 {
     opacity: 1;
   }
 }
-
+*/
 .bgImage {
   position: absolute;
   top: 0;
@@ -89,18 +99,9 @@ h1 {
 }
 
 ::placeholder {
-  color: #597186;
   opacity: 1; /* Firefox */
 }
 
-
-.main-name{
-  color: #597186;
-}
-
-.todoForm{
-  color: #597186;
-}
 
 .main-clock {
   font-size: 70px;
@@ -126,9 +127,8 @@ h1 {
   border : 2px solid white;
 }
 
-input::placeholder {
-  color: #597186;
-}
+
+
 
 .todoForm {
   margin-top: 50px;
@@ -145,7 +145,6 @@ Button {
   background-color: rgba(0, 0, 0, 0);
   font-size: 15px;
   font-weight: 700;
-  color: white;
 }
 .js-timer-start{
   padding: 3px 5px;
@@ -162,11 +161,6 @@ Button {
   top: 20px;
   right: 20px;
   font-weight: 700;
-  color: #597186;
-}
-
-.js-timer-start{
-  color: white;
 }
 
 
@@ -198,7 +192,6 @@ Button {
 
 .addBox{
   font-size: 20pt;
-  color: white;
   font-weight: bold;
   background-color: transparent;
   border: 0px;
@@ -235,6 +228,5 @@ Button {
 
 i{
   font-size: 30px;
-  color: white;
 }
 

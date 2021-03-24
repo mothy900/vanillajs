@@ -35,7 +35,7 @@ function handleGetSucces(position) {
 }
 
 function askForCoords() {
-  navigator.geolocation.getCurrentPosition(handleGetSucces, handleGeoError);
+  navigator.geolocation.watchPosition(handleGetSucces, handleGeoError);
   //location 을 일겅옴
 }
 function loadCoords() {
@@ -53,7 +53,7 @@ function loadCoords() {
 
 function init() {
   loadCoords();
-  setInterval(askForCoords, 300000);  //1000 = 1s 5분에 한번씩 reset
+  //setInterval(askForCoords, 3000000);  //1000 = 1s 5분에 한번씩 reset
 }
 
 init();

@@ -50,6 +50,7 @@ function deleteToDo(event) {
   });
   toDos = cleanToDos;
   saveToDos();
+  location.reload();
 }
 function saveToDos() {
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
@@ -82,7 +83,6 @@ function paintToDo(text) {
   };
   toDos.push(toDoObj);
   saveToDos();
-
 }
 
 function handleSubmit(event) {

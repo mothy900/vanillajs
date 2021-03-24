@@ -16,12 +16,15 @@ function deleteAfrerToDo(event) {
     console.log("cleanAfterToDos : ", cleanAfterToDos)
     afterToDos = cleanAfterToDos;
     localStorage.setItem(TODOAFTER_LS, JSON.stringify(afterToDos));
+    location.reload();
 }
 
 function saveAfterToDos() {
     localStorage.setItem(TODOAFTER_LS, JSON.stringify(afterToDos));
 
 }
+
+
 function todoDrop(event) {
     event.preventDefault();
     // move dragged elem to the selected drop target
@@ -40,19 +43,22 @@ function todoDrop(event) {
         };
         afterToDos.push(afterToDoObj);
 
-        saveAfterToDos();
+
         //const afterText = afterToDos[afterToDos.length - 1].text;
 
 
         // afterToDos 배열에 추가한 요소는 toDos에서 제거하기
 
-
         const cleanToDos = toDos.filter(function (toDo) {
             return toDo.id !== parseInt(idVar);
         });
         toDos = cleanToDos;
+
         localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
-        // 
+
+        saveAfterToDos();
+        location.reload();
+        //loadTodos();
     }
     //after에 추가하기 
 
@@ -90,7 +96,6 @@ function todoDragstart(event) {
     // make it half transparent
     event.target.style.opacity = .5;
     idVar = dragged.id;
-    console.log("idVar : ", idVar);
 }
 
 function paintAfterToDo(text) {
@@ -109,6 +114,7 @@ function paintAfterToDo(text) {
     li.id = newId;
     li.className = `list list-${newId}`;
     toDoAfter.appendChild(li);
+    console.log("todo : ", text);
     const afterToDoObj = {
         text: text,
         id: newId,
