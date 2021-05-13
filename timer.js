@@ -66,7 +66,7 @@ function getTimer() {
 
   } else if (timer_sec == 0) {
     if (timer_min == 0) {
-      alert("Time OVER!!!!");
+      window.alert("Time OVER!!!!");
       clearInterval(timerVar);
     } else {
       timer_min = timer_min - 1;

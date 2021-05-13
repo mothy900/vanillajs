@@ -50,6 +50,7 @@ function deleteToDo(event) {
   });
   toDos = cleanToDos;
   saveToDos();
+  location.reload();
 }
 function saveToDos() {
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
@@ -72,6 +73,7 @@ function paintToDo(text) {
   li.appendChild(span);
   //li.appendChild(addBtn);
   li.appendChild(delBtn);
+  li.draggable = true;
   li.id = newId;
   li.className = `list list-${newId}`;
   todoList.appendChild(li);
@@ -99,9 +101,12 @@ function loadTodos() {
     });
   }
 }
+
+
 function init() {
   loadTodos();
   toDoForm.addEventListener("submit", handleSubmit);
+
 }
 
 init();

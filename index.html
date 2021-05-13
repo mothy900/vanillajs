@@ -1,119 +1,154 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/fa6de8624b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <title>Parcel Sandbox</title>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="src/styles.css" />
-  <script src="https://kit.fontawesome.com/fa6de8624b.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <div class="total-display">
-    <div class="main-display">
-
-      <div class="js-clock main-clock">
-        <h1>00:00</h1>
-      </div>
-      <div class="js-timer timer-clock" style="visibility: hidden;">
-
-        <input name="timer-min" class="js-timer timer-min" type="int" placeholder="00" style="
-              font-size: 40pt;
-              color: white;
-              font-weight: bold;
-              background-color: transparent;
-              border: 0px;
-              text-align: center;            
-              border-bottom: 3px solid white;
-              width: 100px;
-              
-            " />
-        <span class="js-timer timer-dot" style="font-size: 40pt;"> :</span>
-        <input name="timer-sec" class="js-timer timer-sec" type="int" placeholder="00" style="
-              font-size: 40pt;
-              color: white;
-              font-weight: bold;
-              background-color: transparent;
-              border: 0px;
-              text-align: center;
-              border-bottom: 3px solid white;
-              width: 100px;
-              
-            " />
-        <button class="js-timer js-timer-start">
-          시작!
-        </button>
-      </div>
-
-    </div>
-    <div class="sub-display">
-      <div class="user-display">
-
-        <form class="js-form form main-name">
-          <input type="text" size="20" placeholder="Hello, what's your name??" style="
-                font-size: 30pt;
+  <body>
+    <div class="total-display">
+      <div class="up-display">
+        <div class="main-display">
+          <div class="js-clock main-clock">
+            <h1>00:00</h1>
+          </div>
+          <div class="js-timer timer-clock" style="visibility: hidden">
+            <input
+              name="timer-min"
+              class="js-timer timer-min"
+              type="int"
+              placeholder="00"
+              style="
+                font-size: 40pt;
                 color: white;
                 font-weight: bold;
                 background-color: transparent;
                 border: 0px;
                 text-align: center;
                 border-bottom: 3px solid white;
-              " />
-        </form>
-        <h4 class="js-greetings greetings"></h4>
-
-        <form class="js-toDoForm todoForm">
-          <input type="text" size="15" placeholder="What to do today?" style="
-                font-size: 25pt;
+                width: 100px;
+              "
+            />
+            <span class="js-timer timer-dot" style="font-size: 40pt"> :</span>
+            <input
+              name="timer-sec"
+              class="js-timer timer-sec"
+              type="int"
+              placeholder="00"
+              style="
+                font-size: 40pt;
                 color: white;
                 font-weight: bold;
                 background-color: transparent;
                 border: 0px;
                 text-align: center;
                 border-bottom: 3px solid white;
-              " />
-        </form>
+                width: 100px;
+              "
+            />
+            <button class="js-timer js-timer-start">시작!</button>
+          </div>
+        </div>
+        <div class="sub-display">
+          <div class="user-display">
+            <form class="js-form form main-name">
+              <input
+                type="text"
+                size="20"
+                placeholder="Hello, what's your name??"
+                style="
+                  font-size: 30pt;
+                  font-weight: bold;
+                  background-color: transparent;
+                  border: 0px;
+                  text-align: center;
+                "
+              />
+            </form>
+            <h4 class="js-greetings greetings"></h4>
+
+            <form class="js-toDoForm todoForm">
+              <input
+                type="text"
+                size="15"
+                placeholder="What to do today?"
+                style="
+                  font-size: 25pt;
+                  font-weight: bold;
+                  background-color: transparent;
+                  border: 0px;
+                  text-align: center;
+                "
+              />
+            </form>
+          </div>
+
+          <div class="main-weather">
+            <span class="js-weather"></span>
+          </div>
+        </div>
       </div>
-      <ul class="js-toDoList todoList"></ul>
-      <div class="main-weather">
-        <span class="js-weather"></span>
+      <div class="down-display-js down-display">
+        <div class="befor-todo-js before">
+          <div class="before-text">
+            <h3>오늘 할 일!</h3>
+          </div>
+          <ul class="js-toDoList todoList"></ul>
+        </div>
+        <div class="after-todo-js after">
+          <div class="after-text">
+            <h3>다 했당!</h3>
+          </div>
+          <ul class="todo-after"></ul>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="navigation">
+          <div class="nav-scholar">
+            <a
+              href="https://scholar.google.com/"
+              class="scholar"
+              target="_blank"
+            >
+              <i class="fas fa-book"></i>
+            </a>
+          </div>
+          <div class="nav-dic">
+            <a href="https://en.dict.naver.com/#/main" target="_blank">
+              <i class="fas fa-spell-check"></i>
+            </a>
+          </div>
+          <div class="nav-papago">
+            <a href="https://papago.naver.com/" target="_blank">
+              <i class="fas fa-dove"></i>
+            </a>
+          </div>
+          <div class="nav-khu">
+            <a href="https://mail.khu.ac.kr/" target="_blank">
+              <i class="fas fa-university"></i>
+            </a>
+          </div>
+          <div class="js-timer-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="nav">
-      <div class="navigation">
-
-        <div class="nav-scholar">
-          <a href="https://scholar.google.com/" class="scholar">
-            <i class="fas fa-book"></i>
-          </a>
-        </div>
-        <div class="nav-dic">
-          <a href="https://en.dict.naver.com/#/main">
-            <i class="fas fa-spell-check"></i>
-          </a>
-        </div>
-        <div class="nav-papago">
-          <a href="https://papago.naver.com/">
-            <i class="fas fa-dove"></i>
-          </a>
-        </div>
-        <div class="nav-khu">
-          <a href="https://mail.khu.ac.kr/">
-            <i class="fas fa-university"></i>
-          </a>
-        </div>
-        <div class="js-timer-icon">
-          <i class="fas fa-clock"></i>
-        </div>
-      </div>
+    <div class="face-image">
+      <img src="images/myFace.jpeg" width="400px" height="480px" />
     </div>
-  </div>
-  <script src="clock.js"></script>
-  <script src="timer.js"></script>
-  <script src="gretting.js"></script>
-  <script src="todo.js"></script>
-  <script src="bg.js"></script>
-  <script src="weather.js"></script>
-</body>
-
+    <script src="clock.js"></script>
+    <script src="timer.js"></script>
+    <script src="gretting.js"></script>
+    <script src="todo.js"></script>
+    <script src="bg.js"></script>
+    <script src="weather.js"></script>
+    <script src="drag.js"></script>
+    <script src="lineChange.js"></script>
+  </body>
 </html>
