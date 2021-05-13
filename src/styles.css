@@ -16,6 +16,7 @@ input::placeholder,
 .main-weather,
 ::placeholder,
 button,
+.greetings,
 i {
   color: white;
 }
