@@ -6,7 +6,7 @@ function paintImage(imgNumber) {
   const image = new Image();
   //image.src = `images/${imgNumber + 1}.jpg`;
   //image.src = `images/7.jpeg`;
-  image.src = `https://i.pinimg.com/originals/ce/d6/36/ced636d0c6ded839fab4f993ef174dfb.jpg`;
+  image.src = `https://mblogthumb-phinf.pstatic.net/MjAxNjEyMTVfMjUz/MDAxNDgxNzgwMDYxOTE2.fDHVLozvIM-D4xtPyRIYbYjO4TDgQSlURGYz0gRXgPAg.xav4kLsFoefqDC5p9YMldx80rqAucZvmmTFJqadJO-Ag.JPEG.wjs7889/DoKeBi.E04.161210.mp4_20161214_021752.676.jpg?type=w2`;
   image.classList.add("bgImage");
   body.prepend(image);
 }
