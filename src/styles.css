@@ -17,14 +17,28 @@ input::placeholder,
 ::placeholder,
 button,
 .greetings,
+.timer-sec,
+.timer-min,
 i {
-  color: white;
+  color: gray;
 }
-.main-name {
-  border-bottom: 3px solid white;
+.main-name,
+.todoForm,
+.timer-sec,
+.timer-min {
+  border-bottom: 3px solid gray;
+  color: gray;
 }
-.todoForm {
-  border-bottom: 3px solid white;
+
+.before,
+.addBtnClass {
+  border: 3px solid gray;
+  color: gray;
+}
+
+.after {
+  border: 3px solid darkgray;
+  color: darkgray;
 }
 h1 {
   margin: 10px 0px;
@@ -141,13 +155,11 @@ h1 {
   margin-left: 20px;
   height: 80%;
   margin-top: 50px;
-  border: 2px solid white;
 }
 .after {
   margin-left: 20px;
   height: 80%;
   margin-top: 50px;
-  border: 2px solid white;
 }
 
 .todoForm {
