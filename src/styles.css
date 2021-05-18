@@ -88,9 +88,10 @@ h1 {
 
 .face-image {
   position: absolute;
-  top: 20px;
-  right: 650px;
+  top: 25px;
+  right: 420px;
   z-index: -1;
+  transform: rotate(10deg);
 }
 /*
 @keyframes fadeIn {
